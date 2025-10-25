@@ -15,8 +15,8 @@ type Project struct {
 	Views            int             `gorm:"column:views;default:0"`
 	Category         string          `gorm:"column:category;default:'General'"`
 	Cost             int             `gorm:"column:cost;default:0"`
-	Status           string          `gorm:"column:status;default:'active'"` // active, inactive, archived
-	Visibility       int             `gorm:"column:visibility;default:0"`    // 0: public, 1: private
+	Status           string          `gorm:"column:status;default:'active'"`           // active, inactive, archived
+	Visibility       int             `gorm:"column:visibility;type:tinyint;default:1"` // 1: public, 0: private
 	Version          string          `gorm:"column:version;default:'0.0.0'"`
 	CreatedBy        uint            `gorm:"column:created_by;not null"`
 	ModifiedBy       *uint           `gorm:"column:modified_by"`
@@ -51,4 +51,7 @@ func (Project) GetProjectEssentialFields() []string {
 		"created_at",
 		"updated_at",
 	}
+}
+func (p *Project) IsPrivate() bool {
+	return p.Visibility == 1
 }
