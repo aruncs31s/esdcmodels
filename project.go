@@ -6,7 +6,7 @@ import (
 
 type Project struct {
 	ID               uint            `gorm:"primaryKey"`
-	Title            string          `gorm:"column:title;unique"`
+	Title            string          `gorm:"column:title"`
 	Image            *string         `gorm:"column:image"`
 	Description      string          `gorm:"column:description"`
 	GithubLink       string          `gorm:"column:github_link"`
