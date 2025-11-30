@@ -14,7 +14,7 @@ func Migrate(db *gorm.DB) error {
 		&Tag{},
 		&Technologies{},
 		&Comments{},
-		&Reviews{},
+		&Review{},
 		&Order{},
 		&Post{},
 		&Teams{},

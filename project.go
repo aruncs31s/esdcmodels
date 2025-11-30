@@ -31,7 +31,7 @@ type Project struct {
 	ForkedFrom       *uint           `gorm:"column:forked_from"`
 	ForkedByProjects *[]Project      `gorm:"foreignKey:ForkedFrom;references:ID;onDelete:cascade"`
 	Comments         []Comments      `gorm:"foreignKey:ProjectID;references:ID;onDelete:cascade" json:"comments"`
-	Reviews          []Reviews       `gorm:"foreignKey:ProjectID;references:ID;onDelete:cascade" json:"reviews"`
+	Reviews          []Review        `gorm:"foreignKey:ProjectID;references:ID;onDelete:cascade" json:"reviews"`
 }
 
 func (Project) TableName() string {
