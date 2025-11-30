@@ -13,7 +13,7 @@ type ProjectTemplate struct {
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
 	// Relationships
-	Creator      *User
+	Creator      *User           `gorm:"foreignKey:CreatedBy"`
 	Technologies *[]Technologies `gorm:"many2many:template_technologies;"`
 	Tags         *[]Tag          `gorm:"many2many:template_tags;"`
 }
